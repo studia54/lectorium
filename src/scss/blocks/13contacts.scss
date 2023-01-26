@@ -1,0 +1,144 @@
+.contacts {
+	margin-bottom: -60px;
+
+	@media (min-width: $md) {
+		margin-bottom: -120px;
+	}
+
+	& .container {
+		@media (min-width: $lg) {
+			background: rgba(141, 133, 196, 0.1);
+			backdrop-filter: blur(10px);
+		}
+	}
+
+	&__content {
+		padding: 40px 15px 0;
+		max-width: 1047px;
+		width: 100%;
+		margin: auto;
+		background: rgba(141, 133, 196, 0.1);
+		backdrop-filter: blur(10px);
+		position: relative;
+
+		@media (min-width: $lg) {
+			display: flex;
+			justify-content: center;
+			background-color: transparent;
+			backdrop-filter: blur(0px);
+			padding: 84px 15px 0;
+		}
+
+		&::after {
+			position: absolute;
+			display: none;
+			content: "";
+			height: 1px;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			background-color: var(--gold);
+
+			@media (min-width: $lg) {
+				display: block;
+			}
+		}
+
+		&-container {
+			row-gap: 30px;
+			display: flex;
+			border-bottom: 1px solid var(--gold);
+			flex-direction: column;
+			padding-bottom: 30px;
+			justify-content: center;
+
+			@media (min-width: $lg) {
+				row-gap: 40px;
+				border-bottom: none;
+				align-items: center;
+				max-width: 712px;
+				padding-bottom: 60px;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		@media (min-width: $lg) {
+			gap: 60px;
+			flex-direction: row;
+		}
+	}
+
+	&__item {
+		display: flex;
+		column-gap: 20px;
+		align-items: center;
+
+		& .contacts__icon {
+			transition: background-color 0.3s ease;
+
+			& path {
+				transition: stroke 0.3s ease;
+			}
+
+			& rect {
+				transition: stroke 0.3s ease;
+			}
+		}
+
+		&:hover {
+			& .contacts__icon {
+				background-color: var(--gold);
+
+				& path {
+					stroke: var(--white);
+				}
+
+				& rect {
+					stroke: var(--white);
+				}
+			}
+		}
+	}
+
+	&__icon {
+		width: 36px;
+		height: 36px;
+		background: rgba(141, 133, 196, 0.1);
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@media (min-width: $lg) {
+			width: 46px;
+			height: 46px;
+		}
+	}
+
+	&__phone {
+		width: 13px;
+		height: 13px;
+
+		@media (min-width: $lg) {
+			width: 17px;
+			height: 17px;
+		}
+	}
+
+	&__mail {
+		width: 13px;
+		height: 9px;
+
+		@media (min-width: $lg) {
+			width: 17px;
+			height: 17px;
+		}
+	}
+}

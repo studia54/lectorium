@@ -1,0 +1,259 @@
+.popup {
+	position        : fixed;
+	width           : 100%;
+	height          : 100%;
+	top             : 0;
+	left            : 0;
+	display         : none;
+	justify-content : center;
+	align-items     : center;
+	display         : none;
+	z-index         : 11;
+
+	&.show {
+		display : flex;
+	}
+
+	&-content {
+		display          : flex;
+		flex-direction   : column;
+		height           : auto;
+		max-width        : 531px;
+		background-color : var(--black);
+		padding          : 8px 16px;
+		z-index          : 2;
+		opacity          : 0;
+		transform        : translateY(50px);
+		position         : relative;
+
+		&.show {
+			animation : contentIn 300ms ease-in-out forwards;
+
+			&.hide {
+				animation : contentOut 300ms ease-in-out forwards;
+			}
+		}
+
+		@media (min-width : $md) {
+			padding  : 40px;
+		}
+
+		@media (min-width : $lg) {
+			max-height : inherit;
+			height     : auto;
+		}
+	}
+
+	@keyframes contentIn {
+		from {
+			transform : translateY(50px);
+			opacity   : 0;
+		}
+		to {
+			transform : translateY(0px);
+			opacity   : 1;
+		}
+	}
+
+	@keyframes contentOut {
+		from {
+			transform : translateY(0px);
+			opacity   : 1;
+		}
+		to {
+			transform : translateY(50px);
+			opacity   : 0;
+		}
+	}
+
+	& h2 {
+		font-size     : 20px;
+		margin-bottom : 16px;
+
+		@media (min-width : $md) {
+			font-size   : 22px;
+			line-height : 29.7px;
+		}
+	}
+
+	& .close {
+		width             : 16px;
+		height            : 16px;
+		position          : absolute;
+		top               : -150px;
+		right             : 8px;
+		background-size   : contain;
+		background-repeat : no-repeat;
+		cursor            : pointer;
+
+		@media (min-width : $lg) {
+			top    : 16px;
+			right  : 16px;
+			width  : 24px;
+			height : 24px;
+		}
+	}
+
+	& p {
+		font-size     : 12px;
+		color         : rgba(255, 255, 255, 0.8);
+		margin-bottom : 16px;
+
+		@media (min-width : $md) {
+			font-size : 16px;
+		}
+	}
+
+	&-form {
+		line-height : 19.42px;
+		font-weight : 300;
+	}
+
+	& .form {
+		@media (min-width : $lg) {
+			display        : flex;
+			flex-direction : column;
+			align-items    : center;
+			column-gap     : 0;
+			align-items    : flex-start;
+			margin-top     : 24px;
+		}
+
+		&-row {
+			position      : relative;
+			margin-bottom : 32px;
+			width         : 100%;
+
+			@media (min-width : $lg) {
+				margin-bottom : 32px;
+			}
+
+			&:last-child {
+				margin-top    : 20px;
+				margin-bottom : 0;
+
+				@media (min-width : $lg) {
+					margin-top : 24px;
+				}
+
+				& .data-agreement {
+					margin     : auto;
+					max-width  : 285px;
+					text-align : center;
+					margin-top : 16px;
+					font-size  : 12px;
+
+					@media (min-width : $md) {
+						font-size : 14px;
+					}
+				}
+			}
+
+			& .input {
+				border      : 1px solid rgba(224, 192, 160, 0.5);
+				background  : none;
+				width       : 100%;
+				padding     : 21px 16px;
+				font-size   : 13px;
+				font-weight : 300;
+				color       : #fff;
+				transition  : border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+				height      : 42px;
+				font-family : var(--font);
+
+				&::placeholder {
+					color       : rgba(255, 255, 255, 0.5);
+					font-size   : 13px;
+					font-weight : 300;
+
+					@media (min-width : $md) {
+						font-size : 16px;
+					}
+				}
+
+				@media (min-width : $md) {
+					height    : 60px;
+					font-size : 16px;
+					padding   : 21px 24px;
+				}
+
+				&#phone-popup {
+					@media (min-width : $md) {
+						padding-left : 90px !important;
+					}
+
+					@media (min-width : $lg) {
+						padding-left : 105px !important;
+					}
+				}
+			}
+
+			& .highlight {
+				content                     : "";
+				position                    : absolute;
+				display                     : block;
+				width                       : 90%;
+				height                      : 90%;
+				top                         : 10px;
+				left                        : 0;
+				right                       : 0;
+				margin                      : auto;
+				background                  : rgba(224, 192, 160, 0.3);
+				-webkit-backface-visibility : hidden;
+				-moz-backface-visibility    : hidden;
+				-webkit-transform           : translate3d(0, 0, 0);
+				-moz-transform              : translate3d(0, 0, 0);
+				filter                      : blur(50px);
+				z-index                     : -1;
+				opacity                     : 0;
+				transition                  : opacity 0.3s ease;
+			}
+
+			& .input-label {
+				position         : absolute;
+				left             : 15px;
+				font-size        : 16px;
+				font-weight      : 300;
+				line-height      : 1px;
+				color            : #fff;
+				pointer-events   : none;
+				top              : 23px;
+				transform-origin : left;
+				transition       : 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+				@media (min-width : $md) {
+					left : 24px;
+					top  : 30px;
+				}
+			}
+
+			& .input:focus,
+			& .input:not(:placeholder-shown) {
+				outline    : none;
+				border     : 1px solid #e0c0a0;
+				background : var(--black);
+
+				&::placeholder {
+					color : #fff;
+				}
+			}
+
+			& .input:focus ~ label,
+			& .input:not(:placeholder-shown) ~ label {
+				transform : scale(0.8);
+				color     : rgba(255, 255, 255, 0.5);
+				top       : -16px;
+				left      : 0px;
+			}
+
+			& .input:focus ~ .highlight,
+			& .input:not(:placeholder-shown) ~ .highlight {
+				opacity : 1;
+			}
+
+			& button.button {
+				width : 100%;
+			}
+		}
+	}
+}

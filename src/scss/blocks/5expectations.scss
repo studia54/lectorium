@@ -1,0 +1,124 @@
+.expectations {
+
+	& .container {
+		flex-direction : column;
+		row-gap        : 40px;
+
+		@media (min-width : $lg) {
+			row-gap : 60px;
+
+		}
+	}
+
+	&__list {
+		width    : 100%;
+		overflow : hidden;
+
+		& .swiper-wrapper {
+			@media (min-width : 1024px) {
+				gap                   : 20px;
+				display               : grid;
+				grid-template-columns : repeat(3, 1fr);
+			}
+		}
+	}
+
+	&__item {
+		display        : flex;
+		flex-direction : column;
+		row-gap        : 16px;
+
+		@media (min-width : 1024px) {
+			padding        : 30px;
+			min-height     : 309px;
+			position       : relative;
+			flex-direction : column-reverse;
+			align-items    : flex-end;
+		}
+	}
+
+	&__image {
+		min-height : 217px;
+		@media (min-width : 1024px) {
+			top      : 0;
+			left     : 0;
+			position : absolute;
+			z-index  : -1;
+			width    : 100%;
+			height   : 100%;
+		}
+
+		& img {
+			width           : 100%;
+			height          : 100%;
+			object-fit      : cover;
+			object-position : bottom;
+		}
+	}
+
+	&__text {
+		position    : relative;
+		font-size   : 16px;
+		text-indent : 16px;
+		text-align  : left;
+
+		@media (min-width : $md) {
+			font-size : 18px;
+		}
+
+		&::before {
+			position    : absolute;
+			display     : block;
+			content     : '/';
+			left        : -15px;
+			top         : 0;
+			font-size   : 22px;
+			height      : 22px;
+			line-height : 1;
+			color       : var(--gold);
+
+			@media (min-width : $md) {
+				top : 2px;
+			}
+		}
+	}
+
+	&__pagination {
+		position        : relative;
+		bottom          : 0;
+		left            : 0;
+		right           : 0;
+		margin          : auto;
+		display         : flex;
+		align-items     : center;
+		justify-content : center;
+
+		&.swiper-horizontal > .swiper-pagination-bullets,
+		&.swiper-pagination-bullets.swiper-pagination-horizontal {
+			bottom     : inherit;
+			left       : inherit;
+			margin-top : 30px;
+
+			@media (min-width : $md) {
+				margin-top : 35px;
+			}
+		}
+
+		& .swiper-pagination-bullet {
+			width      : calc(100% / 4);
+			overflow   : hidden;
+			transition : background-color 0.3s linear, color 0.3s linear, border-bottom 0.3s linear;
+			cursor     : pointer;
+			text-align : center;
+			color      : transparent;
+			height     : 1px;
+			background : rgba(53, 53, 53, 1);
+
+
+			&-active {
+				background : var(--gold);
+				height     : 2px;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+include ../mixins/title
+-
+  let qa = [
+    {
+      question: 'Можно ли учиться дистанционно?',
+      answer: 'Нет. В отличие от онлайн-курса, формат интенсива предполагает личное взаимодействие спикера и участника. Мы считаем, это позволит выстроить эффективную работу и тщательно проработать все темы.'
+    },
+    {
+      question: 'Что значит “возможность присоединиться к команде профессионалов Studia 54”?',
+      answer: 'Тем участникам, которые успешно завершат интенсив, будет предложено трудоустройство в Studia 54.'
+    },
+  ]
+
+.qa
+  .container
+    +title('вопросы и ответы')
+    .qa-ring
+      svg.qa-ring__inner(width="809" height="809" viewBox="0 0 809 809" fill="none" xmlns="http://www.w3.org/2000/svg")
+        circle(cx="404.5" cy="404.5" r="339" stroke="#6868AC" stroke-opacity="0.31" stroke-width="131")
+    ul.qa__list
+      li.qa__item.accordion__parent.show
+        p.qa__item-question.accordion__trigger Кто может стать участником?
+        p.qa__item-answer Нам не важно, какой у вас стаж. Главное — это наличие опыта работы и базовых знаний дизайна интерьера, которые вы уже применили на практике, а также портфолио. Именно портфолио будет ключевым фактором при наборе группы.
+      each item in qa
+        li.qa__item.accordion__parent
+          p.qa__item-question.accordion__trigger= item.question
+          p.qa__item-answer= item.answer

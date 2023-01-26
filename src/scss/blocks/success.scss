@@ -1,0 +1,65 @@
+.success {
+	text-align : center;
+
+	& .popup-content {
+		background-color : transparent;
+		padding          : 0;
+		max-width        : 572px;
+		width : 90%;
+	}
+
+	& h3 {
+		text-transform : uppercase;
+		font-weight    : 400;
+		margin-bottom  : 30px;
+		line-height    : 1.2;
+		font-size      : 18px;
+
+		@media (min-width : $md) {
+			font-size : 32px;
+		}
+	}
+
+	& p {
+		font-size      : 16px;
+		margin-bottom  : 20px;
+		line-height    : 1.3;
+		text-transform : uppercase;
+
+		@media (min-width : $md) {
+			font-size : 22px;
+			margin-bottom  : 40px;
+
+		}
+	}
+
+	.social {
+		border-top  : 1px solid var(--gold);
+		padding-top : 20px;
+
+		@media (min-width : $md) {
+			padding-top : 40px;
+		}
+	}
+
+	& .social__title {
+		text-transform : initial;
+	}
+
+	& .close {
+		position : absolute;
+		right    : 8px;
+		top      : -150px;
+		width    : 16px;
+		height   : 16px;
+
+		@media (min-width : $md) {
+			width  : 24px;
+			height : 24px;
+		}
+
+		@media (min-width : $lg) {
+			top   : -150px;
+		}
+	}
+}

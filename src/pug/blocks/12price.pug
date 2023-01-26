@@ -1,0 +1,16 @@
+include ../mixins/title
+
+.price
+  .container
+    +title('стоимость участия')
+    .price__list
+      .price__item.price--before
+        .price__header
+          p.title до 24 октября 2022
+        span.price__amount 42 500₽
+        span.price__notice с учётом скидки 15%
+      .price__item.price--after
+        .price__header
+          p.title после 24 октября 2022
+        span.price__amount 50 000₽
+        span.price__notice полная стоимость

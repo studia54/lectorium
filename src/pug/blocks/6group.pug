@@ -1,0 +1,15 @@
+include ../mixins/title
+
+.group
+  .container
+    .group__content
+      +title('как формируется группа?', 'bordered')
+      p
+        | Для комфортного и эффективного участия в интенсиве мы ограничили количество мест в группе,
+        | поэтому предусмотрен предварительный отбор.
+        | С подробными условиями вы можете ознакомиться по 
+        a.gold(href="./img/conditions.pdf" target="_blank") ссылке.
+    .group__image
+      picture
+        source(media="(min-width: 500px)", srcset="./img/group_bg.jpg")
+        img(src="./img/group-mobile.jpg", alt="speaker", width="100%", height="100%")

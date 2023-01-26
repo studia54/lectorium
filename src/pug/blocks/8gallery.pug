@@ -1,0 +1,19 @@
+include ../mixins/title
+- let gallery = ['gallery-1', 'gallery-2', 'gallery-3', 'gallery-4', 'gallery-5', 'gallery-6']
+
+.gallery
+  .container
+    .gallery__header
+      +title('Дизайн-проекты', 'bordered')
+      p.subtitle Разработанные Ольгой Ивановой и командой Studia 54
+    .gallery__list
+      .swiper-wrapper
+        each val in gallery
+          .gallery__item.swiper-slide(data-fancybox="gallery", data-src=`./img/${val}-big.jpg`)
+            .gallery__image
+              picture
+                img(src=`./img/${val}.jpg`, alt="speaker", width="100%", height="100%", loading="lazy")
+      .gallery__navigation.md-visible
+        .swiper-button-next(style="background-image: url(./img/nav.svg)")
+        .swiper-button-prev(style="background-image: url(./img/nav.svg)")
+      .gallery__pagination

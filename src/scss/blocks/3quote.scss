@@ -1,0 +1,48 @@
+.quote {
+	margin-top: 15px;
+	@media (min-width: $lg) {
+		margin-top: -40px;
+		margin-bottom: 8px;
+	}
+
+	& .container {
+		gap: 40px;
+		flex-direction: column;
+
+		@media (min-width: $md) {
+			gap: 60px;
+		}
+
+		@media (min-width: $lg) {
+			display: grid;
+			grid-template-columns: 548px 648px;
+			gap: inherit;
+			justify-content: space-between;
+		}
+	}
+
+	&__title {
+		&.bordered {
+			&::after {
+				@media (min-width: $md) {
+					top: calc(100% + 30px);
+				}
+				@media (min-width: $lg) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__text {
+		font-size: 14px;
+		@media (min-width: $md) {
+			font-size: 18px;
+		}
+
+		& a {
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}
+	}
+}

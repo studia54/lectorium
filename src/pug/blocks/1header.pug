@@ -1,0 +1,27 @@
+include ../mixins/button
+
+.header-scroll
+  .container
+    .logo.lg-visible
+      img(src="./img/logo.svg", alt="logo")
+    .header-content
+      include ./burger
+      ul.menu.md-visible
+        li.menu__item
+          a.menu__link(href="#shedule") программа
+        li.menu__item
+          a.menu__link(href="#speaker") о спикере
+      +button({classes: "button", href: "#registration"}) Регистрация
+
+header.header
+  .container
+    .logo
+      img(src="./img/logo.svg", alt="logo")
+    .header-content
+      include ./burger
+      ul.menu.md-visible
+        li.menu__item
+          a.menu__link(href="#shedule") программа
+        li.menu__item
+          a.menu__link(href="#speaker") о спикере
+      +button({classes: "button", href: "#registration"}) Регистрация

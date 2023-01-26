@@ -1,0 +1,8 @@
+- var values = [{text: 'о бренде', link: '#link'}, {text: 'Коллекция 2022', link: '#link2'}, {text: 'Blossom', link: '#link2'}, {text: 'Команда', link: '#link2'}, {text: 'VIP', link: '#link2'}, {text: 'Контакты', link: '#link2'}];
+
+ul.menu#menu
+  each val in values
+    li.menu__item 
+      a.menu__link(href= val.link)= val.text
+  li.menu__item 
+      a.menu__link(href="https://studia-54.store/") STORE 54

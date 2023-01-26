@@ -1,0 +1,41 @@
+include ../mixins/title
+-
+  let values = [
+    {
+      img: "expectations-1",
+      text: "Очные встречи в небольшой группе до 12 человек"
+    },
+    {
+      img: "expectations-2",
+      text: "Реальные примеры из проектов Studia 54"
+    },
+    {
+      img: "expectations-3",
+      text: "Только полезная информация без «воды»"
+    },
+    {
+      img: "expectations-4",
+      text: "Индивидуальный подход и возможность проявить себя"
+    },
+    {
+      img: "expectations-5",
+      text: "Выполнение практических заданий с обратной связью от Ольги Ивановой"
+    },
+    {
+      img: "expectations-6",
+      text: "Возможность присоединиться к команде профессионалов Studia 54"
+    }
+  ];
+
+.expectations
+  .container
+    +title('что вас ждёт?')
+    .expectations__list
+      .swiper-wrapper
+        each val in values
+          .expectations__item.swiper-slide
+            .expectations__image
+              picture
+                img(src=`./img/${val.img}.jpg`, alt="speaker", width="100%", height="100%", loading="lazy")
+            .expectations__text= val.text
+      .expectations__pagination

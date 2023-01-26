@@ -1,0 +1,23 @@
+.popup#popup
+  .popup-overlay
+  .popup-content 
+    h2.gold Become one step closer to your dream furniture
+    p Leave your contacts in the form below. We will call you back during working hours and help pick up a product
+    .popup-form
+      form.form(action='' method="POST")
+        .form-row 
+          input.input(type="text" name="name" placeholder=" ")
+          label.input-label Name
+          .highlight
+        .form-row 
+          input.input#phone-popup(type="tel" name="phone")
+          .highlight
+        .form-row 
+          input.input(type="email" name="email" placeholder=" ")
+          label.input-label Email
+          .highlight
+        .form-row
+            +button({classes: "button", type: "submit"}) Отправить
+            p.data-agreement
+              | By clicking the button, you agree to the 
+              a.gold(href="https://www.google.com") personal data processing

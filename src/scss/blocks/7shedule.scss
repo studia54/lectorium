@@ -1,0 +1,294 @@
+.shedule {
+	overflow: hidden;
+
+	& .container {
+		position: relative;
+		flex-direction: column;
+		row-gap: 40px;
+		padding: 0;
+
+		@media (min-width: $md) {
+			padding: 0 15px;
+		}
+
+		@media (min-width: $lg) {
+			row-gap: 52px;
+		}
+
+		& .circle {
+			position: absolute;
+			display: block;
+			content: "";
+			width: 258px;
+			height: 258px;
+			top: 228px;
+			border: 47px solid rgba(104, 104, 172, 0.31);
+			border-radius: 50%;
+			left: 72%;
+
+			@media (min-width: $md) {
+				left: 85%;
+			}
+
+			@media (min-width: $lg) {
+				width: 533px;
+				height: 533px;
+				border: 84px solid rgba(104, 104, 172, 0.31);
+				top: 150px;
+				left: 92%;
+			}
+		}
+	}
+
+	& .title {
+		padding: 0 15px;
+	}
+
+	&__list {
+		display: flex;
+		row-gap: 20px;
+		flex-direction: column;
+		position: relative;
+
+		&::before {
+			position: absolute;
+			display: block;
+			content: "";
+			width: 600px;
+			height: 600px;
+			top: 300px;
+			transform: translateX(-50%);
+			margin-left: 50%;
+			background: radial-gradient(41.97% 42.17% at 47.02% 50%, rgba(104, 104, 172, 0.1) 0%, rgba(104, 104, 172, 0) 100%);
+
+			@media (min-width: $lg) {
+				width: 1200px;
+				height: 1200px;
+				transform: translateX(0);
+				margin-left: 0;
+				left: 174px;
+				top: -40px;
+			}
+		}
+	}
+
+	&__item {
+		padding: 30px 15px 0;
+		background: rgba(141, 133, 196, 0.1);
+		backdrop-filter: blur(7.5px);
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+		overflow: hidden;
+
+		@media (min-width: $lg) {
+			padding: 60px 60px 0;
+			row-gap: 38px;
+		}
+
+		&.show {
+			& .shedule__header-title {
+				color: var(--gold);
+			}
+
+			& .inner__list {
+				animation: 0.5s ease forwards slideInShedule;
+				@media (min-width: $lg) {
+					animation: 0.5s ease forwards slideInSheduleLg;
+				}
+			}
+
+			& .shedule__toggle {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	& .shedule__item-header {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		row-gap: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid var(--gold);
+		align-items: flex-start;
+		cursor: pointer;
+
+		@media (min-width: $md) {
+			flex: auto;
+			flex-direction: row;
+			column-gap: 60px;
+			justify-content: space-between;
+		}
+
+		@media (min-width: $lg) {
+			column-gap: 62px;
+		}
+	}
+
+	& .shedule__header-title {
+		padding: 0;
+		font-size: 14px;
+		transition: color 0.3s ease;
+		@media (min-width: $md) {
+			font-size: 20px;
+			flex: auto;
+		}
+	}
+
+	.shedule__header-item {
+		display: flex;
+		column-gap: 6px;
+		align-items: center;
+		font-family: $font_title;
+
+		@media (min-width: $lg) {
+			font-size: 20px;
+			column-gap: 14px;
+		}
+	}
+
+	& .shedule__header-dates {
+		display: flex;
+		column-gap: 20px;
+
+		@media (min-width: $lg) {
+			column-gap: 39px;
+		}
+	}
+
+	& .inner__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+		padding-left: 15px;
+		max-height: 0;
+		animation: 0.5s ease forwards slideOutShedule;
+
+		@media (min-width: $lg) {
+			row-gap: 20px;
+			animation: 0.5s ease forwards slideOutSheduleLg;
+		}
+	}
+
+	& .inner__list-item {
+		font-size: 14px;
+		position: relative;
+
+		&::before {
+			position: absolute;
+			display: block;
+			content: "\2022";
+			color: var(--gold);
+			height: 20px;
+			font-size: 20px;
+			line-height: 20px;
+			left: -15px;
+			top: 0;
+
+			@media (min-width: $md) {
+				top: 2px;
+				font-size: 24px;
+			}
+		}
+
+		@media (min-width: $md) {
+			font-size: 18px;
+		}
+	}
+
+	&__date-icon,
+	&__time-icon {
+		width: 24px;
+		height: 24px;
+	}
+
+	&__toggle {
+		position: absolute;
+		right: 0;
+		top: 6px;
+		width: 18px;
+		height: 8px;
+		transition: transform 0.3s ease;
+
+		@media (min-width: $md) {
+			position: relative;
+			display: flex;
+		}
+
+		@media (min-width: $lg) {
+			width: 25px;
+			height: 11px;
+			right: 3px;
+			top: 7px;
+		}
+	}
+
+	&__toggle-icon {
+		width: 18px;
+		height: 8px;
+		display: block;
+		@media (min-width: $lg) {
+			width: 25px;
+			height: 11px;
+		}
+	}
+}
+
+@keyframes slideInShedule {
+	from {
+		max-height: 0;
+		padding-bottom: 0;
+	}
+
+	to {
+		max-height: 1000px;
+		padding-bottom: 30px;
+	}
+}
+
+@keyframes slideInSheduleLg {
+	from {
+		max-height: 0;
+		padding-bottom: 0;
+	}
+
+	to {
+		max-height: 1000px;
+		padding-bottom: 60px;
+	}
+}
+
+@keyframes slideOutShedule {
+	0% {
+		max-height: 1000px;
+		padding-bottom: 30px;
+	}
+
+	50% {
+		max-height: 200px;
+		padding-bottom: 30px;
+	}
+
+	100% {
+		max-height: 0;
+		padding-bottom: 0;
+	}
+}
+
+@keyframes slideOutSheduleLg {
+	0% {
+		max-height: 1000px;
+		padding-bottom: 60px;
+	}
+
+	50% {
+		max-height: 200px;
+		padding-bottom: 60px;
+	}
+
+	100% {
+		max-height: 0;
+		padding-bottom: 0;
+	}
+}

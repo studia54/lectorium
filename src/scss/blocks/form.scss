@@ -1,0 +1,94 @@
+.form {
+	display        : flex;
+	flex-direction : column;
+	row-gap        : 30px;
+	width          : 100%;
+
+	@media (min-width : $lg) {
+		row-gap : 40px;
+		width : 630px;
+	}
+
+	&-row {
+		position : relative;
+
+		& .input {
+			border-bottom : 2px solid #282828;
+			background    : none;
+			width         : 100%;
+			padding       : 0 0 6px;
+			font-size     : 13px;
+			font-weight   : 300;
+			color         : #fff;
+			transition    : border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			font-family   : var(--font);
+
+			&::placeholder {
+				color       : rgba(255, 255, 255, 0.5);
+				font-size   : 13px;
+				font-weight : 300;
+				opacity: 0;
+				transition: opacity 0.3s ease-out;
+				line-height : 1;
+
+				@media (min-width : $md) {
+					font-size : 20px;
+				}
+			}
+
+			@media (min-width : $lg) {
+				padding   : 0 0 10px;
+				font-size : 20px;
+			}
+		}
+
+		& .input-label {
+			position         : absolute;
+			left             : 0;
+			font-size        : 14px;
+			font-weight      : 300;
+			line-height      : 1.5;
+			color            : #858585;
+			pointer-events   : none;
+			top              : 0;
+			transform-origin : left;
+			transition       : 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+			@media (min-width : $lg) {
+				font-size : 18px;
+			}
+		}
+
+		& .input:focus,
+		& .input:not(:placeholder-shown) {
+			outline : none;
+
+			&::placeholder {
+				color : #fff;
+				opacity: 0.5;
+			}
+		}
+
+		& .input:focus ~ label,
+		& .input:not(:placeholder-shown) ~ label {
+			transform : scale(0.7);
+			top       : -20px;
+
+			@media (min-width : $lg) {
+				top : -24px;
+			}
+
+		}
+
+		& button.button {
+			width          : 100%;
+			padding        : 17px 0;
+			text-transform : capitalize;
+			font-size      : 14px;
+
+			@media (min-width : $lg) {
+				font-size : 18px;
+			}
+		}
+	}
+}

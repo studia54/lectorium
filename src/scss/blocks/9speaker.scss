@@ -1,0 +1,250 @@
+.speaker {
+	position: relative;
+
+	@media (min-width: $lg) {
+		margin-top: -63px;
+	}
+
+	& .container {
+		flex-direction: column;
+	}
+
+	&__content {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 100%;
+		row-gap: 30px;
+
+		@media (min-width: $lg) {
+			min-height: 2076px;
+			grid-template-columns: 629px 542px;
+			justify-content: space-between;
+		}
+	}
+
+	&__photo {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+
+		& img {
+			width: 77vw;
+			min-height: 313px;
+			object-fit: cover;
+			object-position: top;
+			@media (min-width: $lg) {
+				height: 722px;
+			}
+		}
+
+		& picture {
+			position: relative;
+		}
+
+		& .speaker-ring {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			transform: scale(0.4);
+			transform-origin: center;
+			transition: transform 1s ease-out, left 1s ease-out, top 1s ease-out, width 1s ease-out, height 1s ease-out;
+			z-index: -1;
+			opacity: 0;
+
+			@media (min-width: $lg) {
+				position: absolute;
+				left: -76px;
+				top: -28px;
+				width: 780px;
+				height: 780px;
+				transform: scale(0);
+				transform-origin: center;
+				transition: transform 1s ease-out, left 1s ease-out, top 1s ease-out, width 1s ease-out, height 1s ease-out;
+			}
+
+			&__inner {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				width: 100%;
+				height: 100%;
+			}
+
+			&.show {
+				opacity: 1;
+				transform: scale(1);
+			}
+
+			&.speaker2 {
+				opacity: 1;
+				transform: scale(1);
+				width: 219px;
+				height: 219px;
+				left: 60%;
+			}
+
+			&.speaker3 {
+				left: 30%;
+
+				& .speaker-ring__inner {
+					& circle {
+						stroke-width: 110;
+						transition: stroke-width 1s ease-out;
+					}
+				}
+			}
+
+			&.interview {
+				left: -10%;
+
+				& .speaker-ring__inner {
+					& circle {
+						stroke-width: 130;
+						transition: stroke-width 1s ease-out;
+					}
+				}
+			}
+
+			&.interview2 {
+				left: 50%;
+
+				& .speaker-ring__inner {
+					& circle {
+						stroke-width: 90;
+						transition: stroke-width 1s ease-out;
+					}
+				}
+			}
+		}
+	}
+
+	&__front {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+
+		@media (min-width: $lg) {
+			width: 629px;
+			height: 915px;
+			position: sticky;
+			row-gap: 43px;
+			top: 20px;
+		}
+
+		&-about {
+			display: flex;
+			flex-direction: column;
+			row-gap: 6px;
+			margin-top: -26px;
+			text-align: center;
+			align-self: center;
+			align-items: center;
+
+			@media (min-width: $lg) {
+				margin-top: -13px;
+			}
+
+			& h3 {
+				font-size: 18px;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				padding: 0 15px;
+				@media (min-width: $lg) {
+					font-size: 24px;
+					width: 245px;
+				}
+			}
+
+			p {
+				font-size: 14px;
+				max-width: 200px;
+				@media (min-width: $lg) {
+					font-size: 16px;
+					max-width: inherit;
+				}
+
+				& a {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	&__about {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+
+		@media (min-width: $lg) {
+			width: 542px;
+			padding-top: 91px;
+		}
+	}
+
+	&__item {
+		display: flex;
+
+		@media (min-width: $lg) {
+			padding: 50px 40px;
+			min-height: 296px;
+			background: rgba(141, 133, 196, 0.1);
+			backdrop-filter: blur(7px);
+		}
+
+		&-content {
+			font-size: 14px;
+			width: 100%;
+			text-indent: 10px;
+			position: relative;
+
+			@media (min-width: $md) {
+				font-size: 18px;
+			}
+
+			@media (min-width: $lg) {
+				border-top: 1px solid var(--gold);
+				padding-top: 25px;
+				text-indent: 0;
+			}
+
+			&::before {
+				position: absolute;
+				display: block;
+				content: "/";
+				left: -10px;
+				top: 0;
+				font-size: 20px;
+				line-height: 1;
+				color: var(--gold);
+
+				@media (min-width: $lg) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&::after {
+		position: absolute;
+		display: none;
+		content: "";
+		top: 0;
+		z-index: -1;
+		width: 100%;
+		height: 2000px;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		background: radial-gradient(41.97% 42.17% at 47.02% 50%, rgba(104, 104, 172, 0.1) 0%, rgba(104, 104, 172, 0) 100%);
+
+		@media (min-width: $lg) {
+			display: block;
+		}
+	}
+}

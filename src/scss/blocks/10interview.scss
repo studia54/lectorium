@@ -1,0 +1,163 @@
+.interview {
+	& .container {
+		row-gap: 43px;
+		display: grid;
+		grid-template-columns: 1fr;
+
+		@media (min-width: $lg) {
+			justify-content: space-between;
+			grid-template-columns: 649px 542px;
+			min-height: 1304px;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		row-gap: 20px;
+		order: 2;
+		max-height: 740px;
+		overflow: hidden;
+		transition: max-height 0.5s ease;
+
+		@media (min-width: $md) {
+			max-height: inherit;
+		}
+		@media (min-width: $lg) {
+			row-gap: 60px;
+			order: 1;
+		}
+
+		&.show {
+			max-height: 1500px;
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+
+		@media (min-width: $lg) {
+			row-gap: 20px;
+		}
+
+		&-question {
+			color: var(--gold);
+			font-size: 16px;
+
+			@media (min-width: $md) {
+				font-size: 20px;
+			}
+		}
+
+		&-answer {
+			font-size: 14px;
+			text-indent: 30px;
+
+			@media (min-width: $md) {
+				font-size: 18px;
+			}
+		}
+	}
+
+	&__photo {
+		order: 1;
+		display: flex;
+		justify-content: center;
+		@media (min-width: $lg) {
+			top: 80px;
+			width: 542px;
+			height: 622px;
+			position: sticky;
+			order: 1;
+		}
+
+		& picture {
+			position: relative;
+
+			&::after {
+				position: absolute;
+				display: block;
+				content: "\201C";
+				font-size: 140px;
+				color: var(--gold);
+				height: 40px;
+				width: 40px;
+				top: -25px;
+				left: 30px;
+				z-index: 2;
+				line-height: 120px;
+
+				@media (min-width: $lg) {
+					font-size: 300px;
+					line-height: 240px;
+					top: -40px;
+					left: 60px;
+				}
+			}
+		}
+
+		& img {
+			width: 83vw;
+			height: 95vw;
+			object-fit: cover;
+			object-position: top;
+
+			@media (min-width: $lg) {
+				top: 80px;
+				width: 542px;
+				height: 622px;
+				position: sticky;
+				order: 1;
+			}
+		}
+	}
+
+	& .show__content {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		bottom: 0;
+		left: 0;
+		height: 91px;
+		width: 100%;
+		background: linear-gradient(180deg, rgba(14, 14, 14, 0) 0%, #0e0e0e 75%);
+
+		&-button {
+			width: 56px;
+			height: 56px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: #211d19;
+			color: var(--gold);
+			font-size: 30px;
+		}
+
+		&.clicked {
+			animation: 0.5s ease forwards fadeOut;
+		}
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		display: block;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		display: none;
+		opacity: 0;
+	}
+}

@@ -1,0 +1,129 @@
+.ring {
+	position: absolute;
+	top: 500px;
+	width: 100%;
+	transform: scale(0);
+	opacity: 0;
+	transform-origin: center;
+	transition: transform 1.5s ease-out, opacity 1.5s ease-out 1.5s, top 1.5s ease-out, left 1.5s ease-out, width 1.5s ease-out, height 1.5s ease-out;
+	z-index: -1;
+
+	@media (min-width: $lg) {
+		width: 810px;
+		height: 810px;
+		opacity: 0;
+		transform: scale(0);
+		top: -95px;
+		transition: transform 1s ease-out, opacity 1s ease-out 1s, top 1s ease-out, left 1s ease-out, width 1s ease-out, height 1s ease-out;
+	}
+
+	&__inner {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		height: 100%;
+	}
+
+	&.show {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.ring2 {
+	position: absolute;
+	left: -60%;
+	top: 5%;
+	width: 216px;
+	height: 216px;
+	transform: scale(0);
+	opacity: 0;
+	transform-origin: center;
+	transition: transform 1s ease-out, opacity 1s ease-out 1s, top 1s ease-out, left 1s ease-out;
+	z-index: -1;
+
+	@media (min-width: 1024px) {
+		left: 20%;
+		transform: scale(1);
+		opacity: 0;
+	}
+
+	@media (min-width: 1024px) {
+		width: 810px;
+		height: 810px;
+		opacity: 1;
+		transform: scale(1);
+		top: 135px;
+	}
+
+	&__inner {
+		position: absolute;
+		top: 0%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		transform: translateX(-50%);
+	}
+
+	&.quote {
+		left: 20%;
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	&.details {
+		left: -30%;
+		transform: scale(1);
+		opacity: 1;
+		@media (min-width: $md) {
+			left: -10%;
+		}
+		@media (min-width: 1024px) {
+			left: 50%;
+		}
+		.ring2__inner {
+			& circle {
+				stroke-width: 100;
+				transition: stroke-width 0.6s ease-out;
+			}
+		}
+	}
+
+	&.detailsBottom {
+		left: 50%;
+		transition: top 0.6s ease-out, left 0.6s ease-out;
+
+		.ring2__inner {
+			& circle {
+				stroke-width: 82;
+				transition: stroke-width 0.6s ease-out;
+			}
+		}
+	}
+
+	&.expectations {
+		transition: top 0.6s ease-out, left 0.6s ease-out;
+		left: 10%;
+
+		.ring2__inner {
+			& circle {
+				stroke-width: 110;
+				transition: stroke-width 0.6s ease-out;
+			}
+		}
+	}
+
+	&.group {
+		transition: top 0.6s ease-out, left 0.6s ease-out;
+		left: 50%;
+
+		.ring2__inner {
+			& circle {
+				stroke-width: 130;
+				transition: stroke-width 0.6s ease-out;
+			}
+		}
+	}
+}

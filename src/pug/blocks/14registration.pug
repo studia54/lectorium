@@ -1,0 +1,32 @@
+include ../mixins/title
+include ../mixins/button
+
+.registration#registration
+  .container
+    .registration__content
+      h2.title
+        | Не осталось вопросов?
+        br
+        | Тогда регистрируйтесь на интенсив!
+      form.form
+        .form-row
+          span.wpcf7-form-control-wrap
+            input.input(type="text" placeholder=" ")
+            label.input-label ФИО
+        .form-row
+          span.wpcf7-form-control-wrap
+            input.input(type="email" placeholder=" ")
+            label.input-label Электронная почта
+        .form-row
+          span.wpcf7-form-control-wrap
+            input.input.js-phone-input(type='tel' placeholder='+7 (___) ___-__-__')
+            label.input-label Телефон
+        .form-row
+          span.wpcf7-form-control-wrap
+            input.input(type="url" placeholder=" ")
+            label.input-label Ссылка на портфолио
+        .form-row
+          button.button.button--solid
+            span Send
+          //+button({classes: "button button--solid", type: "submit"}) Отправить
+      a.conditions.gold(href="./img/conditions.pdf" target="_blank") Условия участия

@@ -1,0 +1,24 @@
+include ../mixins/title
+
+.contacts
+  .container
+    .contacts__content
+      .contacts__content-container
+        h2.title
+          | Если у вас остались вопросы,
+          br
+          | позвоните или напишите нам
+        .contacts__list
+          a.contacts__item(href="tel:+79697348996")
+            span.contacts__icon
+              svg.contacts__phone(width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M8.93975 13.7507L10.9407 11.7498C11.2833 11.4071 11.8224 11.3595 12.2198 11.6367L14.857 13.476C15.3582 13.8255 15.4216 14.5431 14.9896 14.9752V14.9752C14.2924 15.6723 13.2912 15.9751 12.357 15.66C10.6204 15.0743 7.7007 13.8082 5.26053 11.3681C2.82035 8.9279 1.55427 6.00815 0.968621 4.27163C0.653541 3.33739 0.95628 2.33619 1.65345 1.63903V1.63903C2.0855 1.20697 2.80307 1.27042 3.15261 1.77159L4.9919 4.40877C5.26912 4.80624 5.22145 5.34527 4.87879 5.68793L2.87787 7.68885" stroke="#CBA37C" stroke-width="1.5" stroke-linecap="round")
+            span.contacts__text.phone +7 (969) 734-89-96
+          a.contacts__item(href="lectorium@studia-54.ru")
+            span.contacts__icon
+              svg.contacts__mail(width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                rect(x="0.785706" y="1.25" width="16.4286" height="11.5" stroke="#CBA37C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M0.785706 1.25L8.99999 8.64286L17.2143 1.25" stroke="#CBA37C" stroke-width="1.5")
+                path(d="M0.785706 12.7501L6.53571 6.17871" stroke="#CBA37C" stroke-width="1.5")
+                path(fill-rule="evenodd" clip-rule="evenodd" d="M17.2143 12.7501L11.4643 6.17871L17.2143 12.7501Z" stroke="#CBA37C" stroke-width="1.5")
+            span.contacts__text.email lectorium@studia-54.ru

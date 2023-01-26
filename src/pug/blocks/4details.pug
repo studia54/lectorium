@@ -1,0 +1,35 @@
+-
+  let details = [
+    {
+      header: 'для кого?',
+      icon: 'people',
+      text: 'Для практикующих дизайнеров с опытом работы, которые хотят уйти из фриланса и начать работать с масштабными проектами'
+    },
+    {
+      header: 'какой формат?',
+      icon: 'extension',
+      text: 'Интенсив будет состоять из пяти интерактивных лекций в очном формате'
+    },
+    {
+      header: 'когда и где?',
+      icon: 'alarm',
+      text: 'В ноябре 2022 года в г. Санкт–Петербург, ул. Новгородская, д. 23, офис 340 (ст. метро Чернышевская, Новочеркасская, Пл. Александра Невского)'
+    },
+    {
+      header: 'что понадобится?',
+      icon: 'lamp',
+      text: 'Для выполнения практических заданий понадобятся программы ArchiCAD или AutoCAD и Photoshop'
+    },
+  ]
+
+.details
+  .container
+    ul.details__list
+      each item in details
+        li.details__item
+          .details__header
+            svg.details__icon
+              use(xlink:href=`./img/sprite.svg#${item.icon}`)
+            span.details__title.title.gold= item.header
+          .details__content
+            p= item.text

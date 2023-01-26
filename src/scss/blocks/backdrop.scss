@@ -1,0 +1,40 @@
+.backdrop {
+	top        : 0;
+	left       : 0;
+	width      : 100%;
+	height     : 100%;
+	position   : fixed;
+	z-index : -1;
+	transition : backdrop-filter 300ms ease-in-out, background 300ms ease-in-out;
+
+	&.show {
+		z-index : 2;
+		animation : overlayIn 300ms ease-in-out forwards;
+
+		&.hide {
+			animation : overlayOut 300ms ease-in-out forwards;
+		}
+	}
+}
+
+@keyframes overlayIn {
+	0% {
+		background      : rgba(14, 14, 14, 0);
+		backdrop-filter : blur(0px);
+	}
+	100% {
+		background      : rgba(14, 14, 14, 0.05);
+		backdrop-filter : blur(20px);
+	}
+}
+
+@keyframes overlayOut {
+	0% {
+		background      : rgba(14, 14, 14, 0.05);
+		backdrop-filter : blur(20px);
+	}
+	100% {
+		background      : rgba(14, 14, 14, 0);
+		backdrop-filter : blur(0px);
+	}
+}

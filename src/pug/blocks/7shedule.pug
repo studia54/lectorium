@@ -1,0 +1,101 @@
+include ../mixins/title
+
+-
+  let lessons = [
+    {
+      title: '/2 эргономика',
+      date: '8/11',
+      time: '19:00',
+      topics: [
+        "Основные понятия науки «эргономика»",
+        "Человеческий фактор как база для проектирования",
+        "Правила эргономичного расположения в комнатах",
+        "Создание комфортной среды в интерьерах различного назначения",
+      ]
+    },
+    {
+      title: '/3 Принципы создания композиции в дизайне, часть 1',
+      date: '9/11',
+      time: '19:00',
+      topics: [
+        "Гармоничное расположение объектов в пространстве санузла и спальни",
+        "Визуализация идеи проекта",
+        "Работа с разверткам",
+        "Реализация дизайнерской идеи через поиск источников вдохновения",
+        "Элементы декора в интерьере"
+      ]
+    },
+    {
+      title: '/4 Принципы создания композиции в дизайне, часть 2',
+      date: '10/11',
+      time: '19:00',
+      topics: [
+        "Гармоничное расположение объектов в пространстве кухни и гостиной",
+        "Визуализация идеи проекта",
+        "Работа с разверткам",
+        "Реализация дизайнерской идеи через поиск источников вдохновения",
+        "Элементы декора в интерьере"
+      ]
+    },
+    {
+      title: '/5 Светодизайн',
+      date: '11/11',
+      time: '19:00',
+      topics: [
+        "Типичные ошибки в организации освещения",
+        "Нормы и стандарты освещения",
+        "Функции источников света",
+        "Планирование атмосферы комнаты с помощью света",
+        "Зонирование и восприятие"
+      ]
+    }
+  ];
+
+.shedule#shedule
+  .container
+    +title('Содержание интенсива')
+    ul.shedule__list
+      li.shedule__item.accordion__parent.show
+        .shedule__item-header.accordion__trigger
+          h3.shedule__header-title.title /1 Планировочное решение
+          .shedule__header-dates
+            .shedule__date.shedule__header-item
+              svg.shedule__date-icon
+                use(xlink:href="./img/sprite.svg#calendar")
+              span 7/11
+            .shedule__time.shedule__header-item
+              svg.shedule__time-icon
+                use(xlink:href="./img/sprite.svg#history")
+              span 19:00
+          .shedule__toggle
+            svg.shedule__toggle-icon
+              use(xlink:href="./img/sprite.svg#arrow")
+        ul.inner__list
+          li.inner__list-item
+            p.inner__list-title Обмерный план
+          li.inner__list-item
+            p.inner__list-title Функциональное зонирование
+          li.inner__list-item
+            p.inner__list-title Примеры планировок и реальные случаи из практики
+          li.inner__list-item
+            p.inner__list-title Правила для «мокрых» зон
+      each val in lessons
+        li.shedule__item.accordion__parent
+          .shedule__item-header.accordion__trigger
+            h3.shedule__header-title.title= val.title
+            .shedule__header-dates
+              .shedule__date.shedule__header-item
+                svg.shedule__date-icon
+                  use(xlink:href="./img/sprite.svg#calendar")
+                span= val.date
+              .shedule__time.shedule__header-item
+                svg.shedule__time-icon
+                  use(xlink:href="./img/sprite.svg#history")
+                span= val.time
+            .shedule__toggle
+              svg.shedule__toggle-icon
+                use(xlink:href="./img/sprite.svg#arrow")
+          ul.inner__list
+            each item in val.topics
+              li.inner__list-item
+                p.inner__list-title= item

@@ -1,0 +1,9 @@
+mixin button({type, classes, href})
+  if type
+    button(type= type, class= classes)
+      span
+        block
+  if href
+    a(href= href, class= classes)
+      span
+        block

@@ -1,0 +1,43 @@
+include ../mixins/title
+
+-
+  let about = [
+    {
+      text: 'Выпускница Санкт–Петербургской академии художеств им. Ильи Репина, специальность «Архитектура»'
+    },
+    {
+      text: 'Опыт в дизайне 16 лет'
+    },
+    {
+      text: 'Прошла путь от новичка на фрилансе до руководителя международной дизайн-студии с профессиональной командой из более чем 100 человек'
+    },
+    {
+      text: 'Расширила деятельность Студии до 4х уникальных брендов, деятельность которых  направлена на интерьер, архитектуру, производство мебели и строительство'
+    },
+    {
+      text: 'Создала уникальный стиль Студии, который вдохновляет людей по всему миру'
+    },
+    {
+      text: 'Автор более 500 эксклюзивных дизайн-проектов, от Санкт–Петербурга до Нью-Йорка'
+    }
+  ]
+
+.speaker#speaker
+  .container
+    .speaker__content
+      .speaker__front
+        +title('о спикере')
+        .speaker__photo
+          picture
+            img(src="./img/olga2.jpg", alt="speaker", width="100%", height="100%")
+          .speaker-ring
+            svg.speaker-ring__inner(width="809" height="809" viewBox="0 0 809 809" fill="none" xmlns="http://www.w3.org/2000/svg")
+              circle(cx="404.5" cy="404.5" r="339" stroke="#6868AC" stroke-opacity="0.31" stroke-width="131")
+        .speaker__front-about
+          h3.title.gold Ольга Иванова
+          p Ведущий дизайнер и руководитель 
+            a.gold(href="https://www.studia-54.com/", target="_blank") Studia 54
+      ul.speaker__about
+        each item in about
+          li.speaker__item
+            p.speaker__item-content= item.text
